@@ -1,0 +1,8 @@
+# Virtual environment folder
+env/
+
+# Visual Studio Code configs folder
+.vscode/
+
+# Don't commit sqlite3 database
+db.sqlite3
