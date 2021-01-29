@@ -6,3 +6,7 @@ env/
 
 # Don't commit sqlite3 database
 db.sqlite3
+
+# Python cached files and pyc
+__pycache__
+*.pyc
