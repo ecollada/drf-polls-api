@@ -3,17 +3,18 @@ Polls application models.
 """
 
 from django.db import models
-from django.contrib.auth.models import User
+from django.db.models import CASCADE
+from django.contrib.auth import get_user_model
 
 
-CASCADE = models.CASCADE
+User = get_user_model()
 
 
 class Poll(models.Model):
     """
     Polls model class.
     """
-    question = models.CharField(max_length=10)
+    question = models.CharField(max_length=144)
     user = models.ForeignKey(User, on_delete=CASCADE)
     date = models.DateField(auto_now=True)
 
@@ -41,4 +42,7 @@ class Vote(models.Model):
     user = models.ForeignKey(User, on_delete=CASCADE)
 
     class META:
-        unique_together = ('poll', 'voted_by',)
+        """
+        Model meta configuration class.
+        """
+        unique_together = ('poll', 'voted_by')
